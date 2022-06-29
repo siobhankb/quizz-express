@@ -1,0 +1,12 @@
+$ npm init
+$ npm install express
+
+-->add .gitignore --> 'node_modules/'
+
+-->in scripts:
+-->add: "start": "nodemon index.js"
+
+$ npm install nodemon --save-dev
+
+-->add .env file
+$ npm i dotenv
