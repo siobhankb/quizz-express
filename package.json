@@ -1,7 +1,10 @@
 {
   "dependencies": {
     "dotenv": "^16.0.1",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "graphql": "^16.5.0",
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.4.1"
   },
   "name": "quizzly_express",
   "version": "1.0.0",

@@ -10,3 +10,17 @@ $ npm install nodemon --save-dev
 
 -->add .env file
 $ npm i dotenv
+
+npm start
+
+-->set up db in MongoDb website
+
+-->make models in src/models/
+  'user.models.js'
+
+$ npm install mongoose (<-- updates node_modules & package.json)
+in user.models. --> const
+
+$npm install mongodb
+
+mongodb+srv://siobhankb:<password>@cluster0.9xeoz.mongodb.net/?retryWrites=true&w=majority
