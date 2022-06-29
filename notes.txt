@@ -24,3 +24,6 @@ in user.models. --> const
 $npm install mongodb
 
 mongodb+srv://siobhankb:<password>@cluster0.9xeoz.mongodb.net/?retryWrites=true&w=majority
+
+
+$ npm install express-graphql

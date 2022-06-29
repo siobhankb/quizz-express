@@ -6,31 +6,29 @@ const { User, Quiz, Question, Submission } = require('../models');
 
 // set up types
 
-const UserType = new GraphQLObjectType(
-    {
-        name: 'User',
-        description: 'user type',
-        fields: () => ({
-            id: { type: GraphQLID },
-            username: { type: GraphQLString },
-            email: { type: GraphQLString },
-            quizzes: {
-                type: GraphQLList(QuizType),
-                resolve(parent, args) {
-                    return Quiz.find({ userId: parent.id })
-                }
-            },
-            submissions: {
-                type: GraphQLList(submissionType),
-                resolve(parent, args) {
-                    return Submission.find({userId:parent.id})
-                }
-            }
-        })
-    }
-)
+const UserType = new GraphQLObjectType({
+  name: "User",
+  description: "user type",
+  fields: () => ({
+    id: { type: GraphQLID },
+    username: { type: GraphQLString },
+    email: { type: GraphQLString },
+    quizzes: {
+      type: new GraphQLList(QuizType),
+      resolve(parent, args) {
+        return Quiz.find({ userId: parent.id });
+      },
+    },
+    submissions: {
+      type: new GraphQLList(SubmissionType),
+      resolve(parent, args) {
+        return Submission.find({ userId: parent.id });
+      },
+    },
+  }),
+});
 
-const QuestionType = new GraphQLInputObjectType(
+const QuestionType = new GraphQLObjectType(
     {
         name: 'Question',
         description: 'Question type',
@@ -67,13 +65,13 @@ const QuizType = new GraphQLObjectType(
                 } 
             },
             questions: {
-                type: GraphQLList(QuestionType),
+                type: new GraphQLList(QuestionType),
                 resolve(parent, args){
                     return Question.find({ quizId: parent.id })
                 }
             },
             submissions: {
-                type: GraphQLList(SubmissionType),
+                type: new GraphQLList(SubmissionType),
                 resolve(parent, args){
                     return Submission.find({ quizId: parent.id })
                 }
@@ -95,7 +93,7 @@ const QuizType = new GraphQLObjectType(
     }
 )
 
-const SubmissionType = new GraphQLInputObjectType({
+const SubmissionType = new GraphQLObjectType({
     name: 'Submission',
     description: 'Submission type',
     fields: () => ({
@@ -133,7 +131,7 @@ const QuestionInputType = new GraphQLInputObjectType(
 
 const AnswerInputType = new GraphQLInputObjectType(
     {
-        name: 'Answer Input',
+        name: 'AnswerInput',
         description: 'Answer Input type',
         fields: () => ({
             questionId: { type: GraphQLString },
