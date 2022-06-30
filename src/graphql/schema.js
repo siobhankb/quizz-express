@@ -19,6 +19,7 @@ const MutationsType = new GraphQLObjectType(
     }
 )
 
+
 module.exports = new GraphQLSchema({
     query: QueryType,
     mutation: MutationsType
