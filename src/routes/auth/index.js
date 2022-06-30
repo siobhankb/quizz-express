@@ -11,4 +11,12 @@ MainAutoRouter.route("/register")
 // MainAutoRouter.put('/', (res, req) => {})
 // MainAutoRouter.delete('/', (res, req) => {})
 
+MainAutoRouter.route("/login")
+  .get(require("./login.view.js"))
+  .post((req, res) => { });
+  
+
+MainAutoRouter.route("/logout")
+  .get(require("./logout.js"));  
+
 module.exports = MainAutoRouter

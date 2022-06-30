@@ -7,7 +7,7 @@
                     <div class="card mt-5" >
                         <div class="card-body" >
                             <h4 class="mb-4">
-                                <form action="/auth/register" method="post">
+                                <form action="/auth/login" method="post">
                                     <div class="form-group" >
                                         <label for="email">Email</label>
                                         <input type="email" name="email" class="form-control">
@@ -20,13 +20,9 @@
                                         <label for="password">Password</label>
                                         <input type="password" name="password" class="form-control">
                                     </div>
-                                    <div class="form-group" >
-                                        <label for="confirmPass">Confirm Password</label>
-                                        <input type="password" name="confirmPass" class="form-control">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Register</button>
-                                    <div class="form-group" >
-                                        <a href="/auth/login"><small>Already have an account?</small></a>
+                                    <button type="submit" class="btn btn-primary">Login</button>
+                                    <div class="form-group fs-6 text-center" >
+                                    <a href="/auth/register"><small>Don't have an account? Register Here!</small></a>
                                     </div>
                                 </form>
                             </h4>

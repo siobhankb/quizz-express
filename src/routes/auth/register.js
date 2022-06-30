@@ -1,3 +1,6 @@
+const axios = require('axios');
+const { request } = require('express');
+
 module.exports = async (req, res) => {
   console.log(req.body);
   if (req.body.password !== req.body.confirmPass) {
@@ -7,7 +10,29 @@ module.exports = async (req, res) => {
 
   const mutation = `mutation register($email: String!, $username: String!, $password: String!) {
         register(email: $email, username: $username, password: $password)
-    }`;
-
-  res.send("Registered!");
+    }`
+    try {
+        const { data } = await axios.post(
+          processs.env.GRAPHQL_ENDPOINT,
+          {
+            query: mutation,
+            variables: {
+              email: req.body.email,
+              password: req.body.password,
+              username: req.body.username,
+            },
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const token = data.data.register
+        res.cookie('jwtToken', token, { maxAge: 900000, httpOnly: true })
+        res.redirect('/')
+    } catch (e) {
+        console.log(e)
+        res.redirect('/auth/register')
+      }
 };
