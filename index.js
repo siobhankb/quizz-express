@@ -19,7 +19,9 @@ app.use('/graphql', graphqlHTTP({
 //set the view engine
 app.set('view engine', 'ejs');
 // update location of views folder that res.render uses
-app.set('views',path.join(__dirname, '/src/templates/views'))
+app.set('views', path.join(__dirname, '/src/templates/views'))
+
+app.use(express.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
     res.send('Hello World!!')
@@ -31,6 +33,7 @@ require('./src/routes')(app)
 //initializeRoutes = require('./src/routes')
 //initializeRoutes(app)
 
+
 app.listen(process.env.PORT, () => {
-    console.log(`Server now runningon ${process.env.PORT}`)
+    console.log(`Server now running on ${process.env.PORT}`)
 })

@@ -31,3 +31,5 @@ $ npm install express-graphql
 **If you get errors with these installs, it has something to do w repetitive dependencies - uninstall graphql, express-graphql and re-install
 
 $ npm install ejs
+
+$ npm install axios
