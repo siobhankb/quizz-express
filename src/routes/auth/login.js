@@ -1,5 +1,4 @@
 const axios = require('axios')
-const register = require('./register')
 
 module.exports = async (req, res) => {
     if (!req.body.email || !req.body.password) {

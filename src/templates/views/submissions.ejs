@@ -1,0 +1,34 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="container">
+    <h1>Grizzly Quizzly - Dash!</h1>
+    <div>
+        <h2>Your Submissions</h2>
+        <a href="/">Create Quiz</a>
+    </div>
+    <h3><%- user.username %></h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Submissions</th>
+                <th>Average Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (const submission of user.submissions) { %>
+                <tr>
+                    <td>
+                        <a href="/quiz/results/<%= submission.id %>"><strong><%= submission.quiz.title %></strong></a>
+                        <br>
+                        <small><%= submission.quiz.description %></small>
+                    </td>
+                    <td>
+                        <%= submission.score %>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <h3>hello this is the dashboard</h3>
+</div>
